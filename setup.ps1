@@ -15,4 +15,4 @@ Invoke-WebRequest -Uri $pythonScriptUrl -OutFile "$folderPath\main.py"
 Invoke-WebRequest -Uri $dllFileUrl -OutFile "$folderPath\LivestreamProcessor.dll"
 
 cd C:\livestream\
-Start-Process -NoNewWindow "python" -ArgumentList "C:\livestream\main.py", "potato"
+pythonw main.py potato
