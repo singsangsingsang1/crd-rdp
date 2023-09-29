@@ -13,6 +13,3 @@ New-Item -Path $folderPath -ItemType Directory -Force
 Invoke-WebRequest -Uri $pythonScriptUrl -OutFile "$folderPath\main.py"
 
 Invoke-WebRequest -Uri $dllFileUrl -OutFile "$folderPath\LivestreamProcessor.dll"
-
-cd C:\livestream\
-pythonw main.py potato
