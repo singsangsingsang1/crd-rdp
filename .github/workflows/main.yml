@@ -1,7 +1,8 @@
 name: Windows-CRD
 
-on: 
-  workflow_dispatch:
+on:
+  repository_dispatch:
+    types: [start]
 
   
 jobs:
