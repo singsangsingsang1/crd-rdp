@@ -11,3 +11,5 @@ Invoke-WebRequest -Uri $url2 -OutFile "$folderPath\UnityCaptureFilter64.dll"
 
 Start-Process -FilePath "regsvr32.exe" -ArgumentList "/s `"$folderPath\UnityCaptureFilter32.dll`""
 Start-Process -FilePath "regsvr32.exe" -ArgumentList "/s `"$folderPath\UnityCaptureFilter64.dll`""
+
+Write-Host "Camera registered"
