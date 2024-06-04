@@ -1,2 +1,2 @@
 cd C:\livestream\
-start python "main.py potato"
+python main.py
